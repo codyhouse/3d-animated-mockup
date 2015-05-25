@@ -18,7 +18,7 @@ jQuery(document).ready(function($){
 	$('#cd-start').on('click', function(event){
 		event.preventDefault();
 		//detect the CSS media query using .cd-product-intro::before content value
-		var mq = window.getComputedStyle(document.querySelector('.cd-product-intro'), '::before').getPropertyValue('content');
+		var mq = window.getComputedStyle(document.querySelector('.cd-product-intro'), '::before').getPropertyValue('content').replace(/"/g, "").replace(/'/g, "");
 		if(mq == 'mobile') {
 			$('body,html').animate({'scrollTop': $($(this).attr('href')).offset().top }, 200); 
 		} else {
